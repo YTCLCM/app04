@@ -5,26 +5,26 @@
 <mapper namespace="com.briup.app04.dao.CourseMapper">
 
 	<!-- 查询所有Course -->
-	<select id="findAll" resultType="com.briup.app04.bean.Course">
+	<select id="findAll" resultType="com.briup.app04.bean.Course2">
 		select * 
 		from course
 	</select>
 	
 	<!-- 按ID查询Course -->
 	<select id="findById" parameterType="Long"
-		resultType="com.briup.app04.bean.Course">
+		resultType="com.briup.app04.bean.Course2">
 		select * 
 		from course 
 		where id=#{id}
 	</select>
 
-	<update id="update" parameterType="com.briup.app04.bean.Course">
+	<update id="update" parameterType="com.briup.app04.bean.Course2">
 		update course 
 		set name=#{name},credit=#{credit},description=#{description}
 		where id=#{id}
 	</update>
 
-	<insert id="inserts" parameterType="com.briup.app04.bean.Course">
+	<insert id="inserts" parameterType="com.briup.app04.bean.Course2">
 			insert 
 			into course 
 		<foreach item="item" collection="course" separator=",">
@@ -32,7 +32,7 @@
 		</foreach>
 	</insert>
 
-	<insert id="insert" parameterType="com.briup.app04.bean.Course">
+	<insert id="insert" parameterType="com.briup.app04.bean.Course2">
 		insert into 
 		course values
 		(#{id},#{name},#{credit},#{description})

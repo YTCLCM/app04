@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.app04.bean.Course;
+import com.briup.app04.bean.Course2;
 import com.briup.app04.service.ICourseService;
 import com.briup.app04.util.MsgResponse;
 
@@ -32,7 +32,7 @@ public class CourseController {
 
 	@ApiOperation(value = "插入多条数据")
 	@PostMapping("insertCourses")
-	public MsgResponse inserts(@RequestBody List<Course> list) {
+	public MsgResponse inserts(@RequestBody List<Course2> list) {
 		try {	
 			courseService.inserts(list);
 			return MsgResponse.success("插入成功", null);
@@ -44,7 +44,7 @@ public class CourseController {
 
 	@ApiOperation(value = "插入单条数据")
 	@GetMapping("insertCourse")
-	public MsgResponse insert(Course course) {
+	public MsgResponse insert(Course2 course) {
 		try {
 			courseService.insert(course);
 			return MsgResponse.success("插入成功", null);
@@ -70,7 +70,7 @@ public class CourseController {
 	@GetMapping("findAllCourse")
 	public MsgResponse findAll() {
 		try {
-			List<Course> list = courseService.findAll();
+			List<Course2> list = courseService.findAll();
 			return MsgResponse.success("查询成功", list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -83,7 +83,7 @@ public class CourseController {
 	@GetMapping("findByIdCourse")
 	public MsgResponse findById(long id) {
 		try {
-			Course course=courseService.findById(id);
+			Course2 course=courseService.findById(id);
 			return MsgResponse.success("查询成功", course);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -94,7 +94,7 @@ public class CourseController {
 
 	@ApiOperation(value = "更新数据")
 	@GetMapping("updateCourse")
-	public MsgResponse update(Course course) {
+	public MsgResponse update(Course2 course) {
 		try {
 			courseService.update(course);
 			return MsgResponse.success("更新成功", null);
