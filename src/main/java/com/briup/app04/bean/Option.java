@@ -6,6 +6,7 @@ public class Option {
 	private String content;
 	private String score;
 	private long question_id;
+	
 	public long getId() {
 		return id;
 	}

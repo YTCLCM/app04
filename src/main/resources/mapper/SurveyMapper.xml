@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app04.dao.SurveyMapper">
+	<!-- 查询所有Course -->
+	<select id="findAll" resultType="com.briup.app04.bean.Survey">
+		select * 
+		from survey
+	</select>
+	
+	<!-- 按ID查询Course -->
+	<select id="findById" parameterType="Long"
+		resultType="com.briup.app04.bean.Survey">
+		select * 
+		from survey 
+		where id=#{id}
+	</select>
+
+
+	<update id="update" parameterType="com.briup.app04.bean.Survey">
+		update survey 
+		set state=#{state},average=#{average},surveydate=#{surveydate},questionnaire_id=#{questionnaire_id},
+		course_id=#{course_id},clazz_id=#{clazz_id},user_id=#{user_id}
+		where id=#{id}
+	</update>
+
+	<insert id="inserts" parameterType="com.briup.app04.bean.Survey">
+			insert 
+			into survey 
+		<foreach item="item" collection="answer" separator=",">
+			values(#{item.id}, #{item.state}, #{item.average}, #{item.surveydate},#{item.questionnaire_id},
+			#{item.course_id}, #{item.clazz_id}, #{item.user_id})
+		</foreach>
+	</insert>
+
+	<insert id="insert" parameterType="com.briup.app04.bean.Survey">
+		insert into 
+		survey 
+		values(#{id}, #{state}, #{average}, #{surveydate},#{questionnaire_id},
+			#{course_id}, #{clazz_id}, #{user_id})
+	</insert>
+
+	<delete id="delete" parameterType="Long">
+		delete 
+		from survey 
+		where id=#{id}
+	</delete>
+</mapper> 

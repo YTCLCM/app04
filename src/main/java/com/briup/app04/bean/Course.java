@@ -4,7 +4,7 @@ public class Course {
 	private long id;
 	private String name;
 	private String description;
-	private long period;
+	private Integer period;
 	public long getId() {
 		return id;
 	}
@@ -23,10 +23,10 @@ public class Course {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public long getPeriod() {
+	public Integer getPeriod() {
 		return period;
 	}
-	public void setPeriod(long period) {
+	public void setPeriod(Integer period) {
 		this.period = period;
 	}
 }

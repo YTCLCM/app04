@@ -4,7 +4,7 @@ public class Survey {
 	private long id;
 	private String state;
 	private Integer average;
-	private String serveydate;
+	private String surveydate;
 	private long questionnaire_id;
 	private long course_id;
 	private long clazz_id;
@@ -28,10 +28,10 @@ public class Survey {
 		this.average = average;
 	}
 	public String getServeydate() {
-		return serveydate;
+		return surveydate;
 	}
 	public void setServeydate(String serveydate) {
-		this.serveydate = serveydate;
+		this.surveydate = serveydate;
 	}
 	public long getQuestionnaire_id() {
 		return questionnaire_id;

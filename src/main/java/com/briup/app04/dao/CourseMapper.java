@@ -2,19 +2,18 @@ package com.briup.app04.dao;
 
 import java.util.List;
 
-import com.briup.app04.bean.Course2;
+import com.briup.app04.bean.Course;
 
 public interface CourseMapper {
+	List<Course> findAll(); 
 	
-	List<Course2> findAll(); 
+	Course findById(long id);
 	
-	Course2 findById(long id);
+	void update(Course course);
 	
-	void update(Course2 course);
+	void inserts(List<Course> course);
 	
-	void inserts(List<Course2> course);
-	
-	void insert(Course2 course);
+	void insert(Course course);
 	
 	void delete(long id);
 }

@@ -1,7 +1,9 @@
 package com.briup.app04.bean;
 
 public class Answer {
+	//答卷的ID
 	private long id;
+	//答卷的选项
 	private String selection;
 	private String check;
 	private String content;

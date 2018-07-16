@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.briup.app04.bean.Course;
-import com.briup.app04.service.impl.CourseServiceImpl;
+import com.briup.app04.bean.Answer;
+import com.briup.app04.service.impl.AnswerServiceImpl;
 import com.briup.app04.util.MsgResponse;
 
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@RequestMapping("/course")
-public class CourseController {
+@RequestMapping("/Answer")
+public class AnswerController {
 	// 注入ICourseService的实例
 	@Autowired
-	private CourseServiceImpl courseService;
+	private AnswerServiceImpl answerService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertCourse")
-	public MsgResponse inserts(@RequestBody List<Course> list) {
+	@PostMapping("insertAnswer")
+	public MsgResponse inserts(@RequestBody List<Answer> list) {
 		try {	
-			courseService.inserts(list);
+			answerService.inserts(list);
 			return MsgResponse.success("插入成功", null);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,10 +35,10 @@ public class CourseController {
 	}
 
 	@ApiOperation(value = "插入单条数据")
-	@GetMapping("insertCourse")
-	public MsgResponse insert(Course answer) {
+	@GetMapping("insertAnswer")
+	public MsgResponse insert(Answer answer) {
 		try {
-			courseService.insert(answer);
+			answerService.insert(answer);
 			return MsgResponse.success("插入成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -47,10 +47,10 @@ public class CourseController {
 	}
 
 	@ApiOperation(value = "按ID删除数据")
-	@GetMapping("deleteCourse")
+	@GetMapping("deleteAnswer")
 	public MsgResponse delete(long id) {
 		try {
-			courseService.delete(id);
+			answerService.delete(id);
 			return MsgResponse.success("删除成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -59,10 +59,10 @@ public class CourseController {
 	}
 
 	@ApiOperation(value = "查找所有数据")
-	@GetMapping("findAllCourse")
+	@GetMapping("findAllAnswer")
 	public MsgResponse findAll() {
 		try {
-			List<Course> list = courseService.findAll();
+			List<Answer> list = answerService.findAll();
 			return MsgResponse.success("查询成功", list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -72,11 +72,11 @@ public class CourseController {
 	}
 
 	@ApiOperation(value = "按ID查找数据")
-	@GetMapping("findByIdCourse")
+	@GetMapping("findByIdAnswer")
 	public MsgResponse findById(long id) {
 		try {
-			Course course=courseService.findById(id);
-			return MsgResponse.success("查询成功", course);
+			Answer answer=answerService.findById(id);
+			return MsgResponse.success("查询成功", answer);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,10 +85,10 @@ public class CourseController {
 	}
 
 	@ApiOperation(value = "更新数据")
-	@GetMapping("updateCourse")
-	public MsgResponse update(Course answer) {
+	@GetMapping("updateAnswer")
+	public MsgResponse update(Answer answer) {
 		try {
-			courseService.update(answer);
+			answerService.update(answer);
 			return MsgResponse.success("更新成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

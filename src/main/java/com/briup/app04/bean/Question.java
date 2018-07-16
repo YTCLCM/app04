@@ -4,8 +4,7 @@ public class Question {
 	private long id;
 	private String name;
 	private String questiontype;
-	private String questionnaire_id;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -23,11 +22,5 @@ public class Question {
 	}
 	public void setQuestiontype(String questiontype) {
 		this.questiontype = questiontype;
-	}
-	public String getQuestionnaire_id() {
-		return questionnaire_id;
-	}
-	public void setQuestionnaire_id(String questionnaire_id) {
-		this.questionnaire_id = questionnaire_id;
 	}
 }
