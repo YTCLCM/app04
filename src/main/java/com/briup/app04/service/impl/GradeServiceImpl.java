@@ -72,4 +72,10 @@ public class GradeServiceImpl implements IGradeService{
 		}	
 	}
 
+	@Override
+	public Grade findByName(String name) throws Exception {
+		Grade grade=gradeMapper.findByName(name);
+		return grade;
+	}
+
 }

@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app04.bean.Question;
 import com.briup.app04.service.impl.QuestionServiceImpl;
 import com.briup.app04.util.MsgResponse;
+import com.briup.app04.vm.QuestionVM;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+@Api(description="问题相关的接口")
 @RestController
 @RequestMapping("/question")
 public class QuestionController {
@@ -90,6 +93,18 @@ public class QuestionController {
 		try {
 			questionService.update(answer);
 			return MsgResponse.success("更新成功", null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@ApiOperation(value = "查询所有问题")
+	@GetMapping("findAllQuestionVM")
+	public MsgResponse findAllQuestionVM() {
+		try {
+			List<QuestionVM> list = questionService.findAllQuestionVM();
+			return MsgResponse.success("更新成功", list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return MsgResponse.error(e.getMessage());

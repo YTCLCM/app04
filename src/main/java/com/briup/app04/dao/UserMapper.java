@@ -9,6 +9,8 @@ public interface UserMapper {
 	
 	User findById(long id);
 	
+	User findByName(String name);
+	
 	void update(User user);
 	
 	void inserts(List<User> user);

@@ -9,6 +9,8 @@ public interface GradeMapper {
 	
 	Grade findById(long id);
 	
+	Grade findByName(String name);
+	
 	void update(Grade grade);
 	
 	void inserts(List<Grade> grade);

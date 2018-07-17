@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app04.bean.Survey;
 import com.briup.app04.service.impl.SurveyServiceImpl;
 import com.briup.app04.util.MsgResponse;
+import com.briup.app04.vm.SurveyVM;
 
 import io.swagger.annotations.ApiOperation;
 @RestController
@@ -91,6 +92,19 @@ public class SurveyController {
 			return MsgResponse.success("更新成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@ApiOperation(value = "查找所有的课调管理")
+	@GetMapping("findAllSurveyVM")
+	public MsgResponse findAllSurveyVM() {
+		try {
+			List<SurveyVM> list = surveyService.findAllSurveyVM();
+			return MsgResponse.success("查询成功", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
 	}

@@ -3,18 +3,26 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.briup.app04.dao.GradeMapper">
-	<!-- 查询所有Course -->
+	<!-- 查询所有Grade -->
 	<select id="findAll" resultType="com.briup.app04.bean.Grade">
 		select * 
 		from grade
 	</select>
 	
-	<!-- 按ID查询Course -->
+	<!-- 按ID查询Grade -->
 	<select id="findById" parameterType="Long"
 		resultType="com.briup.app04.bean.Grade">
 		select * 
 		from grade 
 		where id=#{id}
+	</select>
+	
+	<!-- 按name查询Grade -->
+	<select id="findByName" parameterType="String"
+		resultType="com.briup.app04.bean.Grade">
+		select * 
+		from grade 
+		where name=#{name}
 	</select>
 
 	<update id="update" parameterType="com.briup.app04.bean.Grade">

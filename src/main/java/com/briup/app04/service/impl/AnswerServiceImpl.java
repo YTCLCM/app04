@@ -9,8 +9,11 @@ import com.briup.app04.bean.Answer;
 import com.briup.app04.dao.AnswerMapper;
 import com.briup.app04.service.IAnswerService;
 
+//表明类的身份
 @Service
 public class AnswerServiceImpl implements IAnswerService {
+	
+	//注入ClazzMapper 让spring产生一个ClazzMapper的对象
 	@Autowired
 	private AnswerMapper answerMapper;
 	

@@ -72,4 +72,10 @@ public class UserServiceImpl implements IUserService {
 		}	
 	}
 
+	@Override
+	public User findByName(String name) throws Exception {
+		User user=userMapper.findByName(name);
+		return user;
+	}
+
 }

@@ -9,6 +9,8 @@ public interface IGradeService {
 	
 	Grade findById(long id) throws Exception;
 	
+	Grade findByName(String name) throws Exception;
+	
 	void update(Grade grade) throws Exception;
 	
 	void delete(long id) throws Exception;

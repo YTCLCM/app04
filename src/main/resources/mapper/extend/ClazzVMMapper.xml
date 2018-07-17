@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.briup.app04.dao.extend.ClazzVMMapper">
+	<select id="findAll" resultMap="ClazzVMResultMap">
+		select *
+		from clazz
+	</select>
+	<resultMap type="com.briup.app04.vm.ClazzVM" id="ClazzVMResultMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="description" property="description"/>
+		
+		<!-- association用于多对一的查询 -->
+		<association column="grade_id" property="grade" 
+				select="com.briup.app04.dao.GradeMapper.findById">
+		</association>
+		<association column="user_id" property="user"
+				 select="com.briup.app04.dao.UserMapper.findById">
+		 </association>
+		
+	</resultMap>
+	<insert id="insertClazzVM" parameterType="com.briup.app04.vm.ClazzVM">
+		insert
+		into clazz
+		values(#{id},#{name},#{description},null,null)
+	</insert>
+	<!-- <parameterMap type="com.briup.app04.vm.ClazzVM" id="insertClazzVMResultMap">
+		<parameter property="id" jdbcType="id"/>
+		<parameter property="name" jdbcType="name"/>
+		<parameter property="description" jdbcType="description"/>
+		<parameter property="grade.id" jdbcType="grade_id"/>
+		<parameter property="user.id" jdbcType="user_id" />
+	</parameterMap> -->
+	
+</mapper>

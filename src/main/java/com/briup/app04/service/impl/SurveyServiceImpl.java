@@ -7,13 +7,18 @@ import org.springframework.stereotype.Service;
 
 import com.briup.app04.bean.Survey;
 import com.briup.app04.dao.SurveyMapper;
+import com.briup.app04.dao.extend.SurveyVMMapper;
 import com.briup.app04.service.ISurveyService;
+import com.briup.app04.vm.SurveyVM;
 
 @Service
 public class SurveyServiceImpl implements ISurveyService {
 
 	@Autowired
 	private SurveyMapper surveyMapper;
+	
+	@Autowired
+	private SurveyVMMapper surveyVMMapper;
 	
 	@Override
 	public List<Survey> findAll() throws Exception {
@@ -71,5 +76,11 @@ public class SurveyServiceImpl implements ISurveyService {
 		}else{
 			throw new Exception("信息ID已占用");
 		}	
+	}
+
+	@Override
+	public List<SurveyVM> findAllSurveyVM() {
+		List<SurveyVM> list=surveyVMMapper.findAll();
+		return list;
 	}
 }

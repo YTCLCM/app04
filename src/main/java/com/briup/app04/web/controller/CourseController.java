@@ -36,9 +36,9 @@ public class CourseController {
 
 	@ApiOperation(value = "插入单条数据")
 	@GetMapping("insertCourse")
-	public MsgResponse insert(Course answer) {
+	public MsgResponse insert(Course course) {
 		try {
-			courseService.insert(answer);
+			courseService.insert(course);
 			return MsgResponse.success("插入成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -86,9 +86,9 @@ public class CourseController {
 
 	@ApiOperation(value = "更新数据")
 	@GetMapping("updateCourse")
-	public MsgResponse update(Course answer) {
+	public MsgResponse update(Course course) {
 		try {
-			courseService.update(answer);
+			courseService.update(course);
 			return MsgResponse.success("更新成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

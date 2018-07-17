@@ -7,11 +7,16 @@ import org.springframework.stereotype.Service;
 
 import com.briup.app04.bean.Clazz;
 import com.briup.app04.dao.ClazzMapper;
+import com.briup.app04.dao.extend.ClazzVMMapper;
 import com.briup.app04.service.IClazzService;
+import com.briup.app04.vm.ClazzVM;
 @Service
 public class ClazzServiceImpl implements IClazzService {
 	@Autowired
 	private ClazzMapper clazzMapper;
+	
+	@Autowired
+	private ClazzVMMapper clazzVMMapper;
 	
 	@Override
 	public List<Clazz> findAll() throws Exception {
@@ -69,5 +74,21 @@ public class ClazzServiceImpl implements IClazzService {
 		}else{
 			throw new Exception("信息ID已占用");
 		}	
+	}
+
+	@Override
+	public List<ClazzVM> findAllClazzVM() throws Exception {
+		List<ClazzVM> list=clazzVMMapper.findAll();
+		if(null!=list){
+			return list;
+		}else{
+			throw new Exception("信息表为空");
+		}
+	}
+
+	@Override
+	public void insertClazzVM(ClazzVM clazzVM) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -9,6 +9,8 @@ public interface IUserService {
 	
 	User findById(long id) throws Exception;
 	
+	User findByName(String name) throws Exception;
+	
 	void update(User user) throws Exception;
 	
 	void delete(long id) throws Exception;

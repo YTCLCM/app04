@@ -36,9 +36,9 @@ public class OptionController {
 
 	@ApiOperation(value = "插入单条数据")
 	@GetMapping("insertOption")
-	public MsgResponse insert(Option answer) {
+	public MsgResponse insert(Option option) {
 		try {
-			optionService.insert(answer);
+			optionService.insert(option);
 			return MsgResponse.success("插入成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -75,8 +75,8 @@ public class OptionController {
 	@GetMapping("findByIdOption")
 	public MsgResponse findById(long id) {
 		try {
-			Option answer=optionService.findById(id);
-			return MsgResponse.success("查询成功", answer);
+			Option option=optionService.findById(id);
+			return MsgResponse.success("查询成功", option);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -86,9 +86,9 @@ public class OptionController {
 
 	@ApiOperation(value = "更新数据")
 	@GetMapping("updateOption")
-	public MsgResponse update(Option answer) {
+	public MsgResponse update(Option option) {
 		try {
-			optionService.update(answer);
+			optionService.update(option);
 			return MsgResponse.success("更新成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

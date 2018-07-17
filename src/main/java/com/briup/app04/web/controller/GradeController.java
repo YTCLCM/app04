@@ -36,9 +36,9 @@ public class GradeController {
 
 	@ApiOperation(value = "插入单条数据")
 	@GetMapping("insertGrade")
-	public MsgResponse insert(Grade answer) {
+	public MsgResponse insert(Grade grade) {
 		try {
-			gradeService.insert(answer);
+			gradeService.insert(grade);
 			return MsgResponse.success("插入成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -86,9 +86,9 @@ public class GradeController {
 
 	@ApiOperation(value = "更新数据")
 	@GetMapping("updateGrade")
-	public MsgResponse update(Grade answer) {
+	public MsgResponse update(Grade grade) {
 		try {
-			gradeService.update(answer);
+			gradeService.update(grade);
 			return MsgResponse.success("更新成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

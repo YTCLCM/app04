@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.briup.app04.bean.Answer;
-import com.briup.app04.service.impl.AnswerServiceImpl;
+import com.briup.app04.service.IAnswerService;
 import com.briup.app04.util.MsgResponse;
 
 import io.swagger.annotations.ApiOperation;
@@ -20,7 +20,7 @@ import io.swagger.annotations.ApiOperation;
 public class AnswerController {
 	// 注入ICourseService的实例
 	@Autowired
-	private AnswerServiceImpl answerService;
+	private IAnswerService answerService;
 	
 	@ApiOperation(value = "插入多条数据")
 	@PostMapping("insertAnswer")

@@ -7,14 +7,18 @@ import org.springframework.stereotype.Service;
 
 import com.briup.app04.bean.Question;
 import com.briup.app04.dao.QuestionMapper;
+import com.briup.app04.dao.extend.QuestionVMMapper;
 import com.briup.app04.service.IQuestionService;
-import com.briup.app04.service.IQuestionnaireService;
+import com.briup.app04.vm.QuestionVM;
 
 @Service
 public class QuestionServiceImpl implements IQuestionService {
 
 	@Autowired
 	private QuestionMapper questionMapper;
+	
+	@Autowired
+	private QuestionVMMapper questionVMMapper;
 	
 	@Override
 	public List<Question> findAll() throws Exception {
@@ -72,6 +76,12 @@ public class QuestionServiceImpl implements IQuestionService {
 		}else{
 			throw new Exception("信息ID已占用");
 		}	
+	}
+
+	@Override
+	public List<QuestionVM> findAllQuestionVM() throws Exception {
+		
+		return questionVMMapper.findAllQuestionVM();
 	}
 
 }
