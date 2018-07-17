@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 import com.briup.app04.bean.Questionnaire;
 import com.briup.app04.service.impl.QuestionnaireServiceImpl;
 import com.briup.app04.util.MsgResponse;
+import com.briup.app04.vm.QuestionnaireVM;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+@Api(description="问卷相关接口")
 @RestController
 @RequestMapping("/questionnaire")
 public class QuestionnaireController {
@@ -91,6 +95,19 @@ public class QuestionnaireController {
 			return MsgResponse.success("更新成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@ApiOperation(value = "根据问卷的ID获得该问卷的所有题型")
+	@GetMapping("findAllQuestionnaireVM")
+	public MsgResponse findAllQuestionnaireVM() {
+		try {
+			List<QuestionnaireVM> list = questionnaireService.findAllQuestionnaireVM();
+			return MsgResponse.success("查询成功", list);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 			return MsgResponse.error(e.getMessage());
 		}
 	}

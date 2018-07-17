@@ -42,4 +42,15 @@
 		from question 
 		where id=#{id}
 	</delete>
+	
+	
+	<select id="getQuestions" parameterType="long" resultType="com.briup.app04.bean.Question">
+		SELECT a.id,a.name,a.questiontype
+		from question as a,qq as b
+		WHERE a.id=b.question_id and b.question_id in(
+			select c.question_id
+			from qq as c
+			where c.questionnaire_id=#{id}
+		)
+	</select>
 </mapper> 

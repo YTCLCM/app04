@@ -9,6 +9,8 @@ public interface QuestionMapper {
 	
 	Question findById(long id);
 	
+	List<Question> getQuestions(long id);
+	
 	void update(Question question);
 	
 	void inserts(List<Question> question);

@@ -13,8 +13,10 @@ import com.briup.app04.bean.Answer;
 import com.briup.app04.service.IAnswerService;
 import com.briup.app04.util.MsgResponse;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
+@Api(description="答卷相关的接口")
 @RestController
 @RequestMapping("/Answer")
 public class AnswerController {

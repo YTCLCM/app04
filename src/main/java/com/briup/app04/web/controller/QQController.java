@@ -14,6 +14,9 @@ import com.briup.app04.service.impl.QQServiceImpl;
 import com.briup.app04.util.MsgResponse;
 
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
+
+@ApiIgnore
 @RestController
 @RequestMapping("/qq")
 public class QQController {

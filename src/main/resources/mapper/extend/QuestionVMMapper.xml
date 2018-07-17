@@ -7,13 +7,18 @@
 		select *
 		from question
 	</select>
+	<select id="getOptions" parameterType="long" resultType="com.briup.app04.bean.Option">
+		select *
+		from `option`
+		where question_id = #{id}
+	</select>
 	<resultMap type="com.briup.app04.vm.QuestionVM" id="QuestionVMResultMap">
 		<id column="id" property="id" />
 		<result column="name" property="name" />
 		<result column="questiontype" property="questiontype" />
 		<!-- collection用于一对多关系表 -->
-		<collection column="id" property="options" select="com.briup.app04.dao.OptionMapper.findById"></collection>
-
+		<collection  property="options" ofType="com.briup.app04.bean.Option" select="getOptions" column="id"></collection>		
 	</resultMap>
+	
 
 </mapper>

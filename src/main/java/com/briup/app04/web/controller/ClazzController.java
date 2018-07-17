@@ -18,6 +18,7 @@ import com.briup.app04.vm.ClazzVM;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
 
 @Api(description="班级相关接口")
 @RestController
@@ -118,18 +119,19 @@ public class ClazzController {
 		}
 	}
 	
+	@ApiIgnore
 	@ApiOperation(value = "添加课程管理数据")
 	@GetMapping("insertclazzVM")
 	public MsgResponse insertVM(long id,String name,String description,String grade_name,String user_name) {
 		try {		
 			
-			Clazz clazz =new Clazz();
-			clazz.setId(id);
-			clazz.setName(name);
-			clazz.setDescription(description);
-			clazz.setGrade_id(gradeService.findByName(grade_name).getId());
-			clazz.setUser_id(userService.findByName(user_name).getId());			
-			clazzService.insert(clazz);
+			ClazzVM clazzVM =new ClazzVM();
+			clazzVM.setId(id);
+			clazzVM.setName(name);
+			clazzVM.setDescription(description);
+			clazzVM.setGrade(gradeService.findByName(grade_name));
+			clazzVM.setUser(userService.findByName(user_name));			
+			clazzService.insertClazzVM(clazzVM);
 			return MsgResponse.success("插入成功", null);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

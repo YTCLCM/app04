@@ -24,7 +24,7 @@
 	<insert id="insertClazzVM" parameterType="com.briup.app04.vm.ClazzVM">
 		insert
 		into clazz
-		values(#{id},#{name},#{description},null,null)
+		values(#{id},#{name},#{description},#{grade.getId()},#{user.getId()})
 	</insert>
 	<!-- <parameterMap type="com.briup.app04.vm.ClazzVM" id="insertClazzVMResultMap">
 		<parameter property="id" jdbcType="id"/>

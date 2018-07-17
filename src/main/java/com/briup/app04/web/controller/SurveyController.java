@@ -14,7 +14,10 @@ import com.briup.app04.service.impl.SurveyServiceImpl;
 import com.briup.app04.util.MsgResponse;
 import com.briup.app04.vm.SurveyVM;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+
+@Api(description="课调相关的接口")
 @RestController
 @RequestMapping("/survey")
 public class SurveyController {
