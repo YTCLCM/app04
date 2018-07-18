@@ -25,9 +25,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.Answer">
 			insert 
-			into answer 
+			into answer values
 		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.selection}, #{item.check}, #{item.content},#{item.survey_id})
+			(#{item.id}, #{item.selection}, #{item.check}, #{item.content},#{item.survey_id})
 		</foreach>
 	</insert>
 

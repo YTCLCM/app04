@@ -59,7 +59,7 @@ public class GradeServiceImpl implements IGradeService{
 	@Override
 	public void inserts(List<Grade> course) throws Exception {
 		
-		gradeMapper.insert(course.get(0));
+		gradeMapper.inserts(course);
 	}
 
 	@Override

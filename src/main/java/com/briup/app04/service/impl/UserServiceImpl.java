@@ -59,7 +59,7 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public void inserts(List<User> user) throws Exception {
 		
-		userMapper.insert(user.get(0));
+		userMapper.inserts(user);
 	}
 
 	@Override

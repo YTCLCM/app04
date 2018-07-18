@@ -1,7 +1,7 @@
 package com.briup.app04.bean;
 
 public class User {
-	private long id;
+	public long id;
 	private String name;
 	private String sex;
 	private String birth;

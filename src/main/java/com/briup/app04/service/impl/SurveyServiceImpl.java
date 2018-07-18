@@ -65,7 +65,7 @@ public class SurveyServiceImpl implements ISurveyService {
 	@Override
 	public void inserts(List<Survey> course) throws Exception {
 		
-		surveyMapper.insert(course.get(0));
+		surveyMapper.inserts(course);
 	}
 
 	@Override

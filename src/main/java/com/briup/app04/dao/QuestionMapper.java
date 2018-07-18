@@ -2,6 +2,8 @@ package com.briup.app04.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.briup.app04.bean.Question;
 
 public interface QuestionMapper {
@@ -13,9 +15,10 @@ public interface QuestionMapper {
 	
 	void update(Question question);
 	
-	void inserts(List<Question> question);
+	void inserts(@Param("question")List<Question> question);
 	
 	void insert(Question question);
 	
 	void delete(long id);
+
 }

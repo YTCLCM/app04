@@ -63,7 +63,7 @@ public class ClazzServiceImpl implements IClazzService {
 	@Override
 	public void inserts(List<Clazz> course) throws Exception {
 		
-		clazzMapper.insert(course.get(0));
+		clazzMapper.inserts(course);
 	}
 
 	@Override
@@ -89,6 +89,6 @@ public class ClazzServiceImpl implements IClazzService {
 	@Override
 	public void insertClazzVM(ClazzVM clazzVM) throws Exception {
 		// TODO Auto-generated method stub
-		
+		clazzVMMapper.insertClazzVM(clazzVM);
 	}
 }

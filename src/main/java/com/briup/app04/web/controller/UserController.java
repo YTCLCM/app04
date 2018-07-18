@@ -25,7 +25,7 @@ public class UserController {
 	private UserServiceImpl userService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertUser")
+	@PostMapping("insertUsers")
 	public MsgResponse inserts(@RequestBody List<User> list) {
 		try {	
 			userService.inserts(list);

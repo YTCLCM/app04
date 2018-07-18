@@ -25,7 +25,7 @@ public class GradeController {
 	private GradeServiceImpl gradeService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertGrade")
+	@PostMapping("insertGrades")
 	public MsgResponse inserts(@RequestBody List<Grade> list) {
 		try {	
 			gradeService.inserts(list);

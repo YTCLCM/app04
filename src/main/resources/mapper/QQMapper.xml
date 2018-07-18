@@ -25,9 +25,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.QQ">
 			insert 
-			into qq 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.question_id}, #{item.questionnaire_id})
+			into qq values
+		<foreach item="item" collection="qq" separator=",">
+			(#{item.id}, #{item.question_id}, #{item.questionnaire_id})
 		</foreach>
 	</insert>
 

@@ -18,7 +18,6 @@ import com.briup.app04.vm.ClazzVM;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import springfox.documentation.annotations.ApiIgnore;
 
 @Api(description="班级相关接口")
 @RestController
@@ -33,7 +32,8 @@ public class ClazzController {
 	private UserServiceImpl userService;
 	
 	
-	@PostMapping("insertclazz")
+	@ApiOperation(value = "插入多条数据")
+	@PostMapping("insertclazzs")
 	public MsgResponse inserts(@RequestBody List<Clazz> list) {
 		try {	
 			clazzService.inserts(list);
@@ -119,8 +119,8 @@ public class ClazzController {
 		}
 	}
 	
-	@ApiIgnore
-	@ApiOperation(value = "添加课程管理数据")
+	//@ApiIgnore
+	@ApiOperation(value = "添加班级管理")
 	@GetMapping("insertclazzVM")
 	public MsgResponse insertVM(long id,String name,String description,String grade_name,String user_name) {
 		try {		

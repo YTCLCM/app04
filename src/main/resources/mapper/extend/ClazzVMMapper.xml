@@ -21,11 +21,48 @@
 		 </association>
 		
 	</resultMap>
-	<insert id="insertClazzVM" parameterType="com.briup.app04.vm.ClazzVM">
+	<insert id="insertClazzVM" parameterType="com.briup.app04.vm.ClazzVM"
+	 useGeneratedKeys="true" keyProperty="id">
 		insert
 		into clazz
-		values(#{id},#{name},#{description},#{grade.getId()},#{user.getId()})
+		values(#{id}, #{name}, #{description}, #{grade.id},#{user.id})
 	</insert>
+	<!-- 
+	<insert id="insertClazzVM2" parameterMap="insertClazzVMMap"
+	 useGeneratedKeys="true" keyProperty="id">
+		insert
+		into clazz
+		values(#{id}, #{name}, #{description}, #{grade},#{user})
+	</insert>
+	
+	<parameterMap type="com.briup.app04.vm.ClazzVM" id="insertClazzVMMap">
+		<parameter property="id" resultMap="aaa"/>
+		<parameter property="name" resultMap="aaa"/>
+		<parameter property="description" resultMap="aaa"/>
+		<parameter property="grade" resultMap="bbb"/>
+		<parameter property="user" resultMap="ccc"/>
+	</parameterMap>
+	<resultMap type="com.briup.app04.vm.ClazzVM" id="aaa">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="description" property="description"/>
+	</resultMap>
+	
+	<resultMap type="com.briup.app04.bean.Grade" id="bbb">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="description" property="description"/>
+	</resultMap>
+	
+	<resultMap type="com.briup.app04.bean.User" id="ccc">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="sex" property="sex"/>
+		<result column="birth" property="birth"/>
+		<result column="hiredate" property="hiredate"/>
+	</resultMap> -->
+
+	
 	<!-- <parameterMap type="com.briup.app04.vm.ClazzVM" id="insertClazzVMResultMap">
 		<parameter property="id" jdbcType="id"/>
 		<parameter property="name" jdbcType="name"/>

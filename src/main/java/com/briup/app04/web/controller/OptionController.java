@@ -16,7 +16,7 @@ import com.briup.app04.util.MsgResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(description="选项相关的接口")
+@Api(description="问题选项相关的接口")
 @RestController
 @RequestMapping("/option")
 public class OptionController {
@@ -25,7 +25,7 @@ public class OptionController {
 	private OptionServiceImpl optionService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertOption")
+	@PostMapping("insertOptions")
 	public MsgResponse inserts(@RequestBody List<Option> list) {
 		try {	
 			optionService.inserts(list);

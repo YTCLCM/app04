@@ -60,7 +60,7 @@ public class QQServiceImpl implements IQQService {
 	@Override
 	public void inserts(List<QQ> course) throws Exception {
 		
-		qqMapper.insert(course.get(0));
+		qqMapper.inserts(course);
 	}
 
 	@Override

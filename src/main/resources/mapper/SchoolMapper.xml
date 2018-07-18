@@ -26,9 +26,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.School">
 			insert 
-			into school 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.name}, #{item.description}, #{item.address},
+			into school values
+		<foreach item="item" collection="school" separator=",">
+			(#{item.id}, #{item.name}, #{item.description}, #{item.address},
 					#{item.telephone},#{item.copyright})
 		</foreach>
 	</insert>

@@ -60,7 +60,7 @@ public class SchoolServiceImpl implements ISchoolService {
 	@Override
 	public void inserts(List<School> school) throws Exception {
 		
-		schoolMapper.insert(school.get(0));
+		schoolMapper.inserts(school);
 	}
 
 	@Override

@@ -64,7 +64,7 @@ public class OptionServiceImpl implements IOptionService{
 	@Override
 	public void inserts(List<Option> course) throws Exception {
 		
-		optionMapper.insert(course.get(0));
+		optionMapper.inserts(course);
 	}
 
 	@Override

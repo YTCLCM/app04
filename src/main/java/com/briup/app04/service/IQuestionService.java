@@ -2,6 +2,7 @@ package com.briup.app04.service;
 
 import java.util.List;
 
+import com.briup.app04.bean.Option;
 import com.briup.app04.bean.Question;
 import com.briup.app04.vm.QuestionVM;
 
@@ -19,4 +20,7 @@ public interface IQuestionService {
 	void inserts(List<Question> question) throws Exception;
 	
 	void insert(Question question) throws Exception;
+	
+	void insertQuestionAndOption(Question question,List<Option> options) throws Exception;
+
 }

@@ -62,7 +62,7 @@ public class AnswerServiceImpl implements IAnswerService {
 	@Override
 	public void inserts(List<Answer> course) throws Exception {
 		
-		answerMapper.insert(course.get(0));
+		answerMapper.inserts(course);
 	}
 
 	@Override

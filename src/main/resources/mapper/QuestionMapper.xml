@@ -25,13 +25,13 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.Question">
 			insert 
-			into question 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.name}, #{item.questiontype})
+			into question values
+		<foreach item="item" collection="question" separator=",">
+			(#{item.id}, #{item.name}, #{item.questiontype})
 		</foreach>
 	</insert>
 
-	<insert id="insert" parameterType="com.briup.app04.bean.Question">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.briup.app04.bean.Question">
 		insert into 
 		question 
 		values(#{id}, #{name}, #{questiontype})

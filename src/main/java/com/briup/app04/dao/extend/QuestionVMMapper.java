@@ -7,5 +7,5 @@ import com.briup.app04.vm.QuestionVM;
 public interface QuestionVMMapper {
 	
 	List<QuestionVM> findAllQuestionVM();
-	
+
 }

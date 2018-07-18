@@ -26,7 +26,7 @@ public class QuestionnaireController {
 	private QuestionnaireServiceImpl questionnaireService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertQuestionnaire")
+	@PostMapping("insertQuestionnaires")
 	public MsgResponse inserts(@RequestBody List<Questionnaire> list) {
 		try {	
 			questionnaireService.inserts(list);

@@ -24,7 +24,7 @@ public class SchoolController {
 	private SchoolServiceImpl schoolService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertSchool")
+	@PostMapping("insertSchools")
 	public MsgResponse inserts(@RequestBody List<School> list) {
 		try {	
 			schoolService.inserts(list);

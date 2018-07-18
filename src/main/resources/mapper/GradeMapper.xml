@@ -33,9 +33,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.Grade">
 			insert 
-			into grade 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.name}, #{item.description})
+			into grade values
+		<foreach item="item" collection="grade" separator=",">
+			(#{item.id}, #{item.name}, #{item.description})
 		</foreach>
 	</insert>
 

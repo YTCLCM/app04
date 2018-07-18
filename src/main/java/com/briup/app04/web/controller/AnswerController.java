@@ -25,7 +25,7 @@ public class AnswerController {
 	private IAnswerService answerService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertAnswer")
+	@PostMapping("insertAnswers")
 	public MsgResponse inserts(@RequestBody List<Answer> list) {
 		try {	
 			answerService.inserts(list);

@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.briup.app04.bean.Option;
 import com.briup.app04.bean.Question;
-import com.briup.app04.service.impl.QuestionServiceImpl;
+import com.briup.app04.service.IQuestionService;
 import com.briup.app04.util.MsgResponse;
 import com.briup.app04.vm.QuestionVM;
 
@@ -23,10 +24,10 @@ import io.swagger.annotations.ApiOperation;
 public class QuestionController {
 	// 注入ICourseService的实例
 	@Autowired
-	private QuestionServiceImpl questionService;
+	private IQuestionService questionService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertQuestion")
+	@PostMapping("insertQuestions")
 	public MsgResponse inserts(@RequestBody List<Question> list) {
 		try {	
 			questionService.inserts(list);
@@ -107,6 +108,18 @@ public class QuestionController {
 			return MsgResponse.success("更新成功", list);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
+			return MsgResponse.error(e.getMessage());
+		}
+	}
+	
+	@ApiOperation(value = "添加题库及其问题选项",notes="添加题库及其问题选项,所有ID不需要输入")
+	@PostMapping("insertQuestionAndOption")
+	public MsgResponse insertQuestionAndOption(Question question,@RequestBody List<Option> options){
+		try {
+			questionService.insertQuestionAndOption(question,options);
+			return MsgResponse.success("更新成功", null);
+		} catch (Exception e) {
+			// TODO: handle exception
 			return MsgResponse.error(e.getMessage());
 		}
 	}

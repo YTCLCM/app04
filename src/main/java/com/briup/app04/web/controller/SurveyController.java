@@ -26,7 +26,7 @@ public class SurveyController {
 	private SurveyServiceImpl surveyService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertSurvey")
+	@PostMapping("insertSurveys")
 	public MsgResponse inserts(@RequestBody List<Survey> list) {
 		try {	
 			surveyService.inserts(list);

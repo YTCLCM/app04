@@ -20,5 +20,8 @@
 		<collection  property="options" ofType="com.briup.app04.bean.Option" select="getOptions" column="id"></collection>		
 	</resultMap>
 	
+	<insert id="insertQuestionAndOption"  >
+	
+	</insert>
 
 </mapper>

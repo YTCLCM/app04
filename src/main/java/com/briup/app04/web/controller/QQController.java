@@ -25,7 +25,7 @@ public class QQController {
 	private QQServiceImpl qqService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertQQ")
+	@PostMapping("insertQQs")
 	public MsgResponse inserts(@RequestBody List<QQ> list) {
 		try {	
 			qqService.inserts(list);

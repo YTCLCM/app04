@@ -33,9 +33,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.User">
 			insert 
-			into user 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.name}, #{item.sex}, #{item.birth},#{item.hiredate})
+			into user values
+		<foreach item="item" collection="user" separator=",">
+			(#{item.id}, #{item.name}, #{item.sex}, #{item.birth},#{item.hiredate})
 		</foreach>
 	</insert>
 

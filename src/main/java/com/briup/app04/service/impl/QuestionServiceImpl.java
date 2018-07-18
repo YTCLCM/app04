@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.briup.app04.bean.Option;
 import com.briup.app04.bean.Question;
+import com.briup.app04.dao.OptionMapper;
 import com.briup.app04.dao.QuestionMapper;
 import com.briup.app04.dao.extend.QuestionVMMapper;
 import com.briup.app04.service.IQuestionService;
@@ -19,6 +21,9 @@ public class QuestionServiceImpl implements IQuestionService {
 	
 	@Autowired
 	private QuestionVMMapper questionVMMapper;
+	
+	@Autowired
+	private OptionMapper optionMapper;
 	
 	@Override
 	public List<Question> findAll() throws Exception {
@@ -65,7 +70,7 @@ public class QuestionServiceImpl implements IQuestionService {
 	@Override
 	public void inserts(List<Question> course) throws Exception {
 		
-		questionMapper.insert(course.get(0));
+		questionMapper.inserts(course);
 	}
 
 	@Override
@@ -82,6 +87,32 @@ public class QuestionServiceImpl implements IQuestionService {
 	public List<QuestionVM> findAllQuestionVM() throws Exception {
 		
 		return questionVMMapper.findAllQuestionVM();
+	}
+
+	@Override
+	public void insertQuestionAndOption(Question question,List<Option> options) throws Exception {
+		/**
+		 * 将question和option从questionVM中剥离出来、
+		 * question  List<Option>
+		 * QuestionMaper.insert(question)
+		 * 获取刚刚question的ID
+		 * 
+		 */
+		/*Question question=new Question();
+		question.setId(questionVM.getId());
+		question.setName(questionVM.getName());
+		question.setQuestiontype(questionVM.getQuestiontype());
+		List<Option> options=questionVM.getOptions();*/
+		//保存问题
+		questionMapper.insert(question);
+		//获取刚刚获取的id
+		Long question_id=question.getId();
+		//保存选项
+		for(Option option:options){
+			//保存option的外键
+			option.setQuestion_id(question_id);
+			optionMapper.insert(option);
+		}
 	}
 
 }

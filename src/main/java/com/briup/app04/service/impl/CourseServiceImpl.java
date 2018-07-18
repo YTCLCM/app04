@@ -59,7 +59,7 @@ public class CourseServiceImpl implements ICourseService {
 	@Override
 	public void inserts(List<Course> course) throws Exception {
 		
-		courseMapper.insert(course.get(0));
+		courseMapper.inserts(course);
 	}
 
 	@Override

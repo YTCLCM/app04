@@ -25,7 +25,7 @@ public class CourseController {
 	private CourseServiceImpl courseService;
 	
 	@ApiOperation(value = "插入多条数据")
-	@PostMapping("insertCourse")
+	@PostMapping("insertCourses")
 	public MsgResponse inserts(@RequestBody List<Course> list) {
 		try {	
 			courseService.inserts(list);

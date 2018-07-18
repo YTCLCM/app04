@@ -25,9 +25,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.Course">
 			insert 
-			into course 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.name}, #{item.description}, #{item.period})
+			into course values
+		<foreach item="item" collection="course" separator=",">
+			(#{item.id}, #{item.name}, #{item.description}, #{item.period})
 		</foreach>
 	</insert>
 

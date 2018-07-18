@@ -25,9 +25,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.Clazz">
 			insert 
-			into clazz 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.name}, #{item.description}, #{item.grade_id},#{item.user_id})
+			into clazz values
+		<foreach item="item" collection="clazz" separator=",">
+			(#{item.id}, #{item.name}, #{item.description}, #{item.grade_id},#{item.user_id})
 		</foreach>
 	</insert>
 

@@ -2,6 +2,8 @@ package com.briup.app04.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.briup.app04.bean.Option;
 
 public interface OptionMapper {
@@ -11,7 +13,7 @@ public interface OptionMapper {
 	
 	void update(Option option);
 	
-	void inserts(List<Option> option);
+	void inserts(@Param("option")List<Option> option);
 	
 	void insert(Option option);
 	

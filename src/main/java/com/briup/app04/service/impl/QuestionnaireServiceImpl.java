@@ -65,7 +65,7 @@ public class QuestionnaireServiceImpl implements IQuestionnaireService{
 	@Override
 	public void inserts(List<Questionnaire> course) throws Exception {
 		
-		questionnaireMapper.insert(course.get(0));
+		questionnaireMapper.inserts(course);
 	}
 
 	@Override

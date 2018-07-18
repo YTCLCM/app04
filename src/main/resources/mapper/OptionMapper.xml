@@ -25,9 +25,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.Option">
 			insert 
-			into `option` 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.label}, #{item.content}, #{item.score},#{item.question_id})
+			into `option` values
+		<foreach item="item" collection="option" separator=",">
+			(#{item.id}, #{item.label}, #{item.content}, #{item.score},#{item.question_id})
 		</foreach>
 	</insert>
 

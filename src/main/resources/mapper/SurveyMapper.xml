@@ -27,9 +27,9 @@
 
 	<insert id="inserts" parameterType="com.briup.app04.bean.Survey">
 			insert 
-			into survey 
-		<foreach item="item" collection="answer" separator=",">
-			values(#{item.id}, #{item.state}, #{item.average}, #{item.surveydate},#{item.questionnaire_id},
+			into survey values
+		<foreach item="item" collection="survey" separator=",">
+			(#{item.id}, #{item.state}, #{item.average}, #{item.surveydate},#{item.questionnaire_id},
 			#{item.course_id}, #{item.clazz_id}, #{item.user_id})
 		</foreach>
 	</insert>
